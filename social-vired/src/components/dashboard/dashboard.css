@@ -215,3 +215,91 @@
     border-radius: 50%;
     cursor: pointer;
 }
+.post-cards{
+    margin-top: 15px;
+}
+.post-liked {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+.post-liked span {
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-top: 10px;
+    line-height: 15px;
+}
+.floating{
+    position: relative;
+
+}
+.floating .liked {
+    background: red !important;
+}
+.floating span{
+    position: absolute;
+    right: 10px;
+    top: -25px;
+}
+.floating .MuiFab-circular {
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.floating .MuiFab-circular svg {
+    margin-right: 0 !important;
+}
+.post-body{
+    padding-top: 50px !important;
+}
+.comment-wrapper {
+    margin-top: 30px;
+    border-top: solid 1px #ddd;
+    padding-top: 30px;
+
+}
+.comment-title{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    color: #757a91;
+}
+.comment-wrapper .comment-body {
+    padding: 0 15px 15px 70px;
+    font-size: 14px;
+    line-height: 21px;
+}
+.comment-input{
+    margin-top: 30px;
+    padding: 0 15px;
+}
+.comment-input textarea{
+    width: 100%;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    resize: none;
+    height: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.comment-input button {
+    float: right;
+    padding: 8px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.recommended-pages{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: solid 1px #ddd;
+}

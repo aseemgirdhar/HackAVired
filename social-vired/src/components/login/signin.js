@@ -18,7 +18,7 @@ const Login = ({ handleChange }) => {
 
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = `../dashboard/`;
+    let path = `../dashboard`;
     navigate(path);
   };
 

@@ -16,6 +16,7 @@ import Card from '@mui/material/Card';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Avatar from "@mui/material/Avatar";
 import ProfileImg from "../../assets/images/Profile-2.jpg";
+import ProfileImg1 from "../../assets/images/Profile-1.jpg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -31,7 +32,27 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import CameraAltOutlinedIcon from '@mui/icons-material/CameraAltOutlined';
 import CancelIcon from '@mui/icons-material/Cancel';
-import TextField from '@mui/material/TextField';
+import Header from "../header/header";
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import IconButton from '@mui/material/IconButton';
+import { red } from '@mui/material/colors';
+import Post from "../../assets/images/Post-1.jpg"
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import AvatarGroup from '@mui/material/AvatarGroup';
+import Fab from '@mui/material/Fab';
+import CloseIcon from '@mui/icons-material/Close';
+import CommentIcon from '@mui/icons-material/Comment';
+import ScreenShareIcon from '@mui/icons-material/ScreenShare';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import SendIcon from '@mui/icons-material/Send';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 const Dashboard = (props) => {
     const Item = styled(Paper)(({ theme }) => ({
@@ -43,10 +64,14 @@ const Dashboard = (props) => {
     }));
     const [value, setValue] = React.useState(0);
     const [activity , setActivity] = useState(false)
+    const [comment , setComment] = useState(false)
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const likePost = (e) => {
+        e.target.setAttribute("style", "background-color: red;")
 
+    }
     const [feed, setFeed] = React.useState('');
 
     const handleChangeFeed = (event) => {
@@ -96,6 +121,12 @@ const Dashboard = (props) => {
             setActivity(false);
         }
     };
+    const showComment = () => {
+        setComment(true);
+        if(comment === true) {
+            setComment(false);
+        }
+    }
 
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
@@ -129,7 +160,15 @@ const Dashboard = (props) => {
         { id: 4, name: 'Thilak'},
 
     ];
+    const [open, setOpen] = React.useState(false);
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     // the search result
     const [foundUsers, setFoundUsers] = useState(USERS);
 
@@ -149,12 +188,108 @@ const Dashboard = (props) => {
 
     return(
        <>
+           <Header />
            <div className='dashboard-wrapper'>
             <Container maxWidth="xl">
                <Box sx={{ flexGrow: 1 }}>
                    <Grid container spacing={2}>
                        <Grid item xs={6} md={3}>
-                           <Item>xs=6 md=8</Item>
+                           <Card>
+                              <div className='recommended-pages'>
+                                  Recommended Pages
+                              </div>
+
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Fast Pizza </strong>
+                                       <small>Pizza & Fast Food</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Lonely Droid</strong>
+                                       <small>Technology</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Meta Movies</strong>
+                                       <small>Movies / Entertainment</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Nuclearjs</strong>
+                                       <small>Technology</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Slicer</strong>
+                                       <small>Web / Design</small>
+                                   </div>
+                               </MenuItem>
+
+
+                           </Card>
+
+                           <Card sx={{mt: 2}}>
+                               <div className='recommended-pages'>
+                                   Latest activity
+                               </div>
+
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Css Ninja </strong>
+                                       <small>3 hours ago</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Milly Augustine
+                                       </strong>
+                                       <small>5 hours ago
+                                       </small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Meta Movies</strong>
+                                       <small>Movies / Entertainment</small>
+                                   </div>
+                               </MenuItem>
+
+                           </Card>
                        </Grid>
                        <Grid item xs={6} md={6}>
                            <Card variant="outlined">
@@ -322,44 +457,6 @@ const Dashboard = (props) => {
                                                ) : (
                                                    <h1>No results found!</h1>
                                                )}
-
-
-
-{/*
-                                               <MenuItem>
-                                                   <label className="radio-container">
-                                                       <input type="checkbox" name="radio" />
-                                                       <span className="check"></span>
-                                                   </label>
-                                                   <Avatar alt="Profile" src={ProfileImg} className='user-img' />
-                                                   Shivanshu
-                                               </MenuItem>
-                                               <MenuItem>
-                                                   <label className="radio-container">
-                                                       <input type="checkbox" name="radio" />
-                                                       <span className="check"></span>
-                                                   </label>
-                                                   <Avatar alt="Profile" src={ProfileImg} className='user-img' />
-                                                   Aseem
-                                               </MenuItem>
-                                               <MenuItem>
-                                                   <label className="radio-container">
-                                                       <input type="checkbox" name="radio" />
-                                                       <span className="check"></span>
-                                                   </label>
-                                                   <Avatar alt="Profile" src={ProfileImg} className='user-img' />
-                                                   Sahil
-                                               </MenuItem>
-                                               <MenuItem>
-                                                   <label className="radio-container">
-                                                       <input type="checkbox" name="radio" />
-                                                       <span className="check"></span>
-                                                   </label>
-                                                   <Avatar alt="Profile" src={ProfileImg} className='user-img' />
-                                                   Thilak
-                                               </MenuItem>*/}
-
-
                                            </div>
 
                                        </div> : ''}
@@ -374,9 +471,376 @@ const Dashboard = (props) => {
                                    </TabPanel>
                                </Box>
                            </Card>
+
+                           <Card variant="outlined" className='post-cards'>
+                               <CardHeader
+                                   avatar={
+                                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                           R
+                                       </Avatar>
+                                   }
+                                   action={
+                                       <IconButton aria-label="settings">
+                                           <MoreVertIcon />
+                                       </IconButton>
+                                   }
+                                   title="Shrimp and Chorizo Paella"
+                                   subheader="September 14, 2016"
+                               />
+                               <CardMedia
+                                   component="img"
+                                   height="194"
+                                   image={Post}
+                                   alt="Paella dish"
+                               />
+                               <div className='floating'>
+                                   <span>
+                                       <Fab color="primary" aria-label="add"  onClick={handleClickOpen}>
+                                           <ScreenShareIcon />
+                                       </Fab>
+                                       <Fab color='primary' aria-label="add" onClick={likePost}>
+                                           <FavoriteIcon />
+                                       </Fab>
+                                   </span>
+                               </div>
+
+                               <Dialog
+                                   open={open}
+                                   onClose={handleClose}
+                                   aria-labelledby="alert-dialog-title"
+                                   aria-describedby="alert-dialog-description"
+                               >
+                                   <DialogTitle id="alert-dialog-title">
+                                       {"Share Post"}
+                                   </DialogTitle>
+                                   <DialogContent>
+                                       <DialogContentText id="alert-dialog-description">
+                                           <Card variant="outlined" className='post-cards'>
+
+                                               <CardMedia
+                                                   component="img"
+                                                   height="194"
+                                                   image={Post}
+                                                   alt="Paella dish"
+                                               />
+                                               <CardContent className='post-body'>
+                                                   <Typography variant="body2" color="text.secondary">
+                                                       This impressive paella is a perfect party dish and a fun meal to cook
+                                                       together with your guests. Add 1 cup of frozen peas along with the mussels,
+                                                       if you like.
+                                                   </Typography>
+                                               </CardContent>
+
+                                           </Card>
+                                       </DialogContentText>
+                                   </DialogContent>
+                                   <DialogActions>
+                                       <Button onClick={handleClose}>Cancel</Button>
+                                       <Button onClick={handleClose} autoFocus>
+                                           Share
+                                       </Button>
+                                   </DialogActions>
+                               </Dialog>
+
+
+                               <CardContent className='post-body'>
+                                   <Typography variant="body2" color="text.secondary">
+                                       This impressive paella is a perfect party dish and a fun meal to cook
+                                       together with your guests. Add 1 cup of frozen peas along with the mussels,
+                                       if you like.
+                                   </Typography>
+                                   <div className='post-liked'>
+                                       <AvatarGroup>
+                                           <Avatar alt="Remy Sharp" src={Post} />
+                                           <Avatar alt="Travis Howard" src={ProfileImg} />
+                                           <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                                           <Avatar alt="Trevor Henderson" src={ProfileImg1} />
+                                       </AvatarGroup>
+                                       <span> <strong>Milly, David </strong>and 23 more liked this</span>
+
+                                   </div>
+
+                                       <div className='comment-wrapper'>
+                                            <div className='comment-title'>Comments (8) </div>
+
+                                           <CardHeader
+                                               avatar={
+                                                   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                                       R
+                                                   </Avatar>
+                                               }
+                                               action={
+                                                   <IconButton aria-label="settings">
+                                                       <MoreVertIcon />
+                                                   </IconButton>
+                                               }
+                                               title="Shrimp and Chorizo Paella"
+                                               subheader="September 14, 2016"
+                                           />
+                                           <div className='comment-body'>
+                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.
+                                           </div>
+                                            <Divider />
+                                           <CardHeader
+                                               avatar={
+                                                   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                                       R
+                                                   </Avatar>
+                                               }
+                                               action={
+                                                   <IconButton aria-label="settings">
+                                                       <MoreVertIcon />
+                                                   </IconButton>
+                                               }
+                                               title="Shrimp and Chorizo Paella"
+                                               subheader="September 14, 2016"
+                                           />
+                                           <div className='comment-body'>
+                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.
+                                           </div>
+                                           <div className='comment-input'>
+                                                <textarea placeholder='Write a comment'></textarea>
+                                               <Button variant="contained"> <SendIcon /> Send</Button>
+
+                                           </div>
+                                       </div>
+
+                               </CardContent>
+                           </Card>
+                           <Card variant="outlined" className='post-cards'>
+                               <CardHeader
+                                   avatar={
+                                       <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                           R
+                                       </Avatar>
+                                   }
+                                   action={
+                                       <IconButton aria-label="settings">
+                                           <MoreVertIcon />
+                                       </IconButton>
+                                   }
+                                   title="Shrimp and Chorizo Paella"
+                                   subheader="September 14, 2016"
+                               />
+                               <CardMedia
+                                   component="img"
+                                   height="194"
+                                   image={Post}
+                                   alt="Paella dish"
+                               />
+                               <div className='floating'>
+                                   <span>
+                                       <Fab color="primary" aria-label="add"  onClick={handleClickOpen}>
+                                           <ScreenShareIcon />
+                                       </Fab>
+                                       <Fab color='primary' aria-label="add" onClick={likePost}>
+                                           <FavoriteIcon />
+                                       </Fab>
+                                   </span>
+                               </div>
+
+                               <Dialog
+                                   open={open}
+                                   onClose={handleClose}
+                                   aria-labelledby="alert-dialog-title"
+                                   aria-describedby="alert-dialog-description"
+                               >
+                                   <DialogTitle id="alert-dialog-title">
+                                       {"Share Post"}
+                                   </DialogTitle>
+                                   <DialogContent>
+                                       <DialogContentText id="alert-dialog-description">
+                                           <Card variant="outlined" className='post-cards'>
+
+                                               <CardMedia
+                                                   component="img"
+                                                   height="194"
+                                                   image={Post}
+                                                   alt="Paella dish"
+                                               />
+                                               <CardContent className='post-body'>
+                                                   <Typography variant="body2" color="text.secondary">
+                                                       This impressive paella is a perfect party dish and a fun meal to cook
+                                                       together with your guests. Add 1 cup of frozen peas along with the mussels,
+                                                       if you like.
+                                                   </Typography>
+                                               </CardContent>
+
+                                           </Card>
+                                       </DialogContentText>
+                                   </DialogContent>
+                                   <DialogActions>
+                                       <Button onClick={handleClose}>Cancel</Button>
+                                       <Button onClick={handleClose} autoFocus>
+                                           Share
+                                       </Button>
+                                   </DialogActions>
+                               </Dialog>
+
+
+                               <CardContent className='post-body'>
+                                   <Typography variant="body2" color="text.secondary">
+                                       This impressive paella is a perfect party dish and a fun meal to cook
+                                       together with your guests. Add 1 cup of frozen peas along with the mussels,
+                                       if you like.
+                                   </Typography>
+                                   <div className='post-liked'>
+                                       <AvatarGroup>
+                                           <Avatar alt="Remy Sharp" src={Post} />
+                                           <Avatar alt="Travis Howard" src={ProfileImg} />
+                                           <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                                           <Avatar alt="Trevor Henderson" src={ProfileImg1} />
+                                       </AvatarGroup>
+                                       <span> <strong>Milly, David </strong>and 23 more liked this</span>
+
+                                   </div>
+
+                                   <div className='comment-wrapper'>
+                                       <div className='comment-title'>Comments (8) </div>
+
+                                       <CardHeader
+                                           avatar={
+                                               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                                   R
+                                               </Avatar>
+                                           }
+                                           action={
+                                               <IconButton aria-label="settings">
+                                                   <MoreVertIcon />
+                                               </IconButton>
+                                           }
+                                           title="Shrimp and Chorizo Paella"
+                                           subheader="September 14, 2016"
+                                       />
+                                       <div className='comment-body'>
+                                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.
+                                       </div>
+                                       <Divider />
+                                       <CardHeader
+                                           avatar={
+                                               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                                   R
+                                               </Avatar>
+                                           }
+                                           action={
+                                               <IconButton aria-label="settings">
+                                                   <MoreVertIcon />
+                                               </IconButton>
+                                           }
+                                           title="Shrimp and Chorizo Paella"
+                                           subheader="September 14, 2016"
+                                       />
+                                       <div className='comment-body'>
+                                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.
+                                       </div>
+                                       <div className='comment-input'>
+                                           <textarea placeholder='Write a comment'></textarea>
+                                           <Button variant="contained"> <SendIcon /> Send</Button>
+
+                                       </div>
+                                   </div>
+
+                               </CardContent>
+                           </Card>
                        </Grid>
                        <Grid item xs={6} md={3}>
-                           <Item>xs=6 md=4</Item>
+
+
+                           <Card>
+                               <div className='recommended-pages'>
+                                   Friends
+                               </div>
+
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Shivanshu Pandey </strong>
+                                       <small>3 Mutual Friends</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Sahil
+                                       </strong>
+                                       <small>5 Mutual Friends
+                                       </small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Thilak</strong>
+                                       <small>1 Mutual Friend</small>
+                                   </div>
+                               </MenuItem>
+
+                           </Card>
+                           <Card  sx={{mt: 2}}>
+                               <div className='recommended-pages'>
+                                   New Story
+                               </div>
+
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Fast Pizza </strong>
+                                       <small>Pizza & Fast Food</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Lonely Droid</strong>
+                                       <small>Technology</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Meta Movies</strong>
+                                       <small>Movies / Entertainment</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg1} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Nuclearjs</strong>
+                                       <small>Technology</small>
+                                   </div>
+                               </MenuItem>
+                               <Divider />
+                               <MenuItem>
+                                   <ListItemIcon sx={{ mr: 2 }} >
+                                       <Avatar alt="Profile" src={ProfileImg} className='avatar'/>
+                                   </ListItemIcon>
+                                   <div className='profile-dropdown'>
+                                       <strong>Slicer</strong>
+                                       <small>Web / Design</small>
+                                   </div>
+                               </MenuItem>
+
+
+                           </Card>
                        </Grid>
 
                    </Grid>
