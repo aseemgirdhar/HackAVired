@@ -45,8 +45,6 @@ import Post from '../../assets/images/Post-1.jpg';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Fab from '@mui/material/Fab';
-import CloseIcon from '@mui/icons-material/Close';
-import CommentIcon from '@mui/icons-material/Comment';
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SendIcon from '@mui/icons-material/Send';

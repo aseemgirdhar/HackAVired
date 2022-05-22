@@ -3,7 +3,6 @@ import SignInOutContainer from './container/Index';
 import Canvas from './components/canvas/Canvas';
 import Dashboard from './components/dashboard/dashboard';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/header/header";
 
 function App() {
 
