@@ -1,10 +1,12 @@
-.dashboard-wrapper{
-    margin-top: 50px;
+.dashboard-wrapper {
+    margin-top: 20px;
 }
-.MuiTabs-flexContainer{
+
+.MuiTabs-flexContainer {
     justify-content: space-between;
 }
-.MuiButtonBase-root{
+
+.MuiButtonBase-root {
     height: auto;
     min-height: 30px !important;
     padding: 15px !important;
@@ -13,65 +15,81 @@
     flex-direction: row !important;
 
 }
+
 .MuiButtonBase-root svg {
     margin-right: 5px;
     font-size: 18px;
 }
-.MuiButtonBase-root.Mui-selected{
+
+.MuiButtonBase-root.Mui-selected {
     color: #FF5D5D !important;
 }
-.MuiTabs-indicator{
+
+.MuiTabs-indicator {
     background-color: #FF5D5D !important;
 }
-.tab-body .MuiBox-root{
+
+.tab-body .MuiBox-root {
     padding: 15px;
     position: relative;
 }
+
 .tab-body {
     position: relative;
 }
-.tab-body .MuiBox-root textarea{
+
+.tab-body .MuiBox-root textarea {
     width: 100%;
     padding: 10px 10px 10px 65px;
     border: none;
     resize: none;
     box-sizing: border-box;
 }
+
 .tab-body .MuiBox-root textarea:focus {
     outline: none;
 }
-.tab-body .avatar{
+
+.tab-body .avatar {
     position: absolute;
     top: 20px;
     left: 25px;
 }
+
 .post-wrapper {
     background: #f5f6f7;
     padding: 15px;
     border-radius: 10px;
 }
-.post-list{
+
+.post-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.post-list:first-child{
+
+.post-list:first-child {
     margin-bottom: 10px;
 }
+
 .post-list .list-radio {
     display: inline-flex;
     align-items: center;
 }
+
 .post-list .list-radio span {
     display: flex;
     align-items: center;
 }
+
 .post-list .list-radio span svg {
     margin-right: 10px;
 }
+
 .post-list .MuiOutlinedInput-root {
     border-radius: 20px;
 }
+
 .post-list .MuiSelect-select {
     padding: 5px 10px;
     display: inline-flex;
@@ -79,14 +97,17 @@
     background: #fff;
     border-radius: 20px;
 }
+
 .post-list .MuiSelect-select em {
     display: flex;
     align-items: center;
 }
+
 .post-list .MuiSelect-select em svg {
     font-size: 18px;
     margin-right: 10px;
 }
+
 .radio-container {
     display: block;
     position: relative;
@@ -114,11 +135,11 @@
     border-radius: 50%;
 }
 
-.radio-container:hover input ~ .check {
+.radio-container:hover input~.check {
     background-color: gray;
 }
 
-.radio-container input:checked ~ .check {
+.radio-container input:checked~.check {
     background-color: #FF5D5D;
 }
 
@@ -128,7 +149,7 @@
     display: none;
 }
 
-.radio-container input:checked ~ .check:after {
+.radio-container input:checked~.check:after {
     display: block;
 }
 
@@ -140,41 +161,49 @@
     border-radius: 50%;
     background: white;
 }
-.post-button{
+
+.post-button {
     padding: 5px !important;
     width: 100%;
     margin-top: 30px !important;
     border-radius: 20px !important;
     background-color: #FF5D5D !important;
 }
+
 .media {
     border-top: solid 1px #ddd;
     padding: 10px;
 }
+
 .media label {
     cursor: pointer;
 }
+
 .media .MuiChip-root {
     background-color: #FFE3A9;
     padding: 0 10px !important;
     cursor: pointer;
 }
+
 .media label .MuiChip-root svg {
     font-size: 16px;
 }
 
-.send-directly{
+.send-directly {
     border-top: solid 1px #ddd;
     margin-top: 10px;
 }
+
 .send-directly .MuiMenuItem-root {
     justify-content: flex-start;
     text-align: left;
     padding-left: 0 !important;
 }
+
 .send-directly .MuiMenuItem-root:hover {
     background-color: transparent;
 }
+
 .send-directly .send-message {
     display: flex;
     margin-top: 15px;
@@ -183,30 +212,33 @@
     align-items: center;
     justify-content: space-between;
 }
-.send-message input{
+
+.send-message input {
     border: solid 1px #ddd;
     border-radius: 5px;
     padding: 5px 10px;
     outline-color: #FF5D5D
 }
-.send-message input:focus{
 
-}
-.user-img{
+.user-img {
     margin-right: 15px;
 }
+
 .media-img-preview img {
     max-height: 150px;
 }
+
 .media-img-preview input[type=file] {
     display: none;
 }
+
 .media-img-preview {
     margin-bottom: 15px;
     display: inline-block;
     position: relative;
 }
-.media-img-preview svg{
+
+.media-img-preview svg {
     position: absolute;
     right: -10px;
     color: #000;
@@ -215,14 +247,17 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.post-cards{
+
+.post-cards {
     margin-top: 15px;
 }
+
 .post-liked {
     display: flex;
     justify-content: flex-start;
     margin-top: 30px;
 }
+
 .post-liked span {
     font-size: 12px;
     display: inline-flex;
@@ -231,18 +266,22 @@
     margin-top: 10px;
     line-height: 15px;
 }
-.floating{
+
+.floating {
     position: relative;
 
 }
+
 .floating .liked {
     background: red !important;
 }
-.floating span{
+
+.floating span {
     position: absolute;
     right: 10px;
     top: -25px;
 }
+
 .floating .MuiFab-circular {
     margin-left: 10px;
     width: 50px;
@@ -252,19 +291,23 @@
     justify-content: center;
 
 }
+
 .floating .MuiFab-circular svg {
     margin-right: 0 !important;
 }
-.post-body{
+
+.post-body {
     padding-top: 50px !important;
 }
+
 .comment-wrapper {
     margin-top: 30px;
     border-top: solid 1px #ddd;
     padding-top: 30px;
 
 }
-.comment-title{
+
+.comment-title {
     margin-bottom: 30px;
     display: flex;
     align-items: center;
@@ -272,16 +315,19 @@
     font-weight: 500;
     color: #757a91;
 }
+
 .comment-wrapper .comment-body {
     padding: 0 15px 15px 70px;
     font-size: 14px;
     line-height: 21px;
 }
-.comment-input{
+
+.comment-input {
     margin-top: 30px;
     padding: 0 15px;
 }
-.comment-input textarea{
+
+.comment-input textarea {
     width: 100%;
     border: solid 1px #ddd;
     border-radius: 5px;
@@ -290,13 +336,15 @@
     padding: 15px;
     box-sizing: border-box;
 }
+
 .comment-input button {
     float: right;
     padding: 8px !important;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-.recommended-pages{
+
+.recommended-pages {
     display: flex;
     align-items: center;
     justify-content: space-between;

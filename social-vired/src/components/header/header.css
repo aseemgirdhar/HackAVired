@@ -24,6 +24,10 @@
 .profile-dropdown {
     line-height: 18px;
 }
+.linkLogout{
+    text-decoration: none;
+    color: #333;
+}
 .profile-dropdown strong{
     display: block;
     width: 100%;
