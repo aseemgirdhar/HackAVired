@@ -19,16 +19,18 @@ import Avatar from '@mui/material/Avatar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
+import ProfileImg from '../../assets/images/Profile-2.jpg'
+import SettingsIcon from '@mui/icons-material/Settings';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import './header.css'
 const Header = () => {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
         '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.25),
+            backgroundColor: alpha(theme.palette.common.white, 0.35),
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
@@ -64,12 +66,20 @@ const Header = () => {
     }));
 
     const [anchorEl1, setAnchorEl1] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
     const open = Boolean(anchorEl1);
+    const openProfile = Boolean(anchorEl2);
     const handleClick = (event) => {
         setAnchorEl1(event.currentTarget);
     };
+    const handleClickProfile = (event) => {
+        setAnchorEl2(event.currentTarget);
+    };
     const handleClose = () => {
         setAnchorEl1(null);
+    };
+    const handleCloseProfile = () => {
+        setAnchorEl2(null);
     };
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -164,25 +174,16 @@ const Header = () => {
 
 
     return(
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1 }} className='header-dropdown'>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        MUI
+                        The A Team
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
@@ -197,15 +198,16 @@ const Header = () => {
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <Tooltip title="Notification">
                             <IconButton
+                                anchorEl={anchorEl1}
                                 size="large"
-                                aria-label="show 17 new notifications"
+                                aria-label="show 5 new notifications"
                                 color="inherit"
                                 onClick={handleClick}
                                 aria-controls={open ? 'account-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                             >
-                                <Badge badgeContent={17} color="error">
+                                <Badge badgeContent={5} color="error">
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
@@ -246,66 +248,82 @@ const Header = () => {
                             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         >
+                            <div className='menu-header'>
+                                Notification   <NotificationsIcon />
+                            </div>
+
                             <MenuItem>
-                                <Avatar /> Profile
-                            </MenuItem>
-                            <MenuItem>
-                                <Avatar /> My account
+                                <Avatar src={ProfileImg} />
+                                <div className='comment-text'>
+                                    <div className='comment-details'>
+                                        <strong>Shivanshu</strong> commented on <strong>your post</strong>
+                                    </div>
+                                    <small>30 minutes ago</small>
+                                </div>
                             </MenuItem>
                             <Divider />
                             <MenuItem>
-                                <ListItemIcon>
-                                    <PersonAdd fontSize="small" />
-                                </ListItemIcon>
-                                Add another account
+                                <Avatar src={ProfileImg} />
+                                <div className='comment-text'>
+                                    <div className='comment-details'>
+                                        <strong>Shivanshu</strong> commented on <strong>your post</strong>
+                                    </div>
+                                    <small>30 minutes ago</small>
+                                </div>
                             </MenuItem>
+                            <Divider />
                             <MenuItem>
-                                <ListItemIcon>
-                                    <Settings fontSize="small" />
-                                </ListItemIcon>
-                                Settings
+                                <Avatar src={ProfileImg} />
+                                <div className='comment-text'>
+                                    <div className='comment-details'>
+                                        <strong>Shivanshu</strong> commented on <strong>your post</strong>
+                                    </div>
+                                    <small>30 minutes ago</small>
+                                </div>
                             </MenuItem>
-
+                            <Divider />
+                            <MenuItem>
+                                <Avatar src={ProfileImg} />
+                                <div className='comment-text'>
+                                    <div className='comment-details'>
+                                        <strong>Shivanshu</strong> commented on <strong>your post</strong>
+                                    </div>
+                                    <small>30 minutes ago</small>
+                                </div>
+                            </MenuItem>
+                            <Divider />
+                            <MenuItem>
+                                <Avatar src={ProfileImg} />
+                                <div className='comment-text'>
+                                    <div className='comment-details'>
+                                        <strong>Shivanshu</strong> commented on <strong>your post</strong>
+                                    </div>
+                                    <small>30 minutes ago</small>
+                                </div>
+                            </MenuItem>
                         </Menu>
-
-
                         <Tooltip title="Profile">
-
                             <IconButton
+                                anchorEl={anchorEl2}
                                 size="large"
                                 edge="end"
                                 aria-label="account of current user"
                                 color="inherit"
-                                onClick={handleClick}
-                                aria-controls={open ? 'account-menu' : undefined}
+                                onClick={handleClickProfile}
+                                aria-controls={openProfile ? 'account-menu' : undefined}
                                 aria-haspopup="true"
-                                aria-expanded={open ? 'true' : undefined}
+                                aria-expanded={openProfile ? 'true' : undefined}
                             >
-                                <AccountCircle />
+                                <Avatar alt="Profile" src={ProfileImg} />
                             </IconButton>
-
-
-                           {/* <IconButton
-                                size="large"
-                                aria-label="show 17 new notifications"
-                                color="inherit"
-                                onClick={handleClick}
-                                aria-controls={open ? 'account-menu' : undefined}
-                                aria-haspopup="true"
-                                aria-expanded={open ? 'true' : undefined}
-                            >
-                                <Badge badgeContent={17} color="error">
-                                    <NotificationsIcon />
-                                </Badge>
-                            </IconButton>*/}
                         </Tooltip>
 
                         <Menu
-                            anchorEl={anchorEl1}
+                            anchorEl={anchorEl2}
                             id="account-menu"
-                            open={open}
-                            onClose={handleClose}
-                            onClick={handleClose}
+                            open={openProfile}
+                            onClose={handleCloseProfile}
+                            onClick={handleCloseProfile}
                             PaperProps={{
                                 elevation: 0,
                                 sx: {
@@ -335,25 +353,39 @@ const Header = () => {
                             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         >
+
                             <MenuItem>
-                                <Avatar /> Profile
-                            </MenuItem>
-                            <MenuItem>
-                                <Avatar /> My account
+                                <ListItemIcon>
+                                    <SettingsIcon fontSize="small" />
+                                </ListItemIcon>
+                                <div className='profile-dropdown'>
+                                    <strong>Settings</strong>
+                                    <small>Access Profile settings</small>
+                                </div>
                             </MenuItem>
                             <Divider />
                             <MenuItem>
                                 <ListItemIcon>
-                                    <PersonAdd fontSize="small" />
+
+                                    <SupportAgentIcon fontSize="small" />
                                 </ListItemIcon>
-                                Add another account
+                                <div className='profile-dropdown'>
+                                    <strong>Help</strong>
+                                    <small>Contact our support</small>
+                                </div>
                             </MenuItem>
+                            <Divider />
                             <MenuItem>
                                 <ListItemIcon>
-                                    <Settings fontSize="small" />
+
+                                    <ExitToAppIcon fontSize="small" />
                                 </ListItemIcon>
-                                Settings
+                                <div className='profile-dropdown'>
+                                    <strong>Log Out</strong>
+                                    <small>Logout from your account</small>
+                                </div>
                             </MenuItem>
+
 
                         </Menu>
 

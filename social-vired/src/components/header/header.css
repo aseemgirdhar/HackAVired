@@ -1,6 +1,31 @@
 .MuiAppBar-colorPrimary  {
     background-color: #FF5D5D !important;
 }
-.MuiPopover-paper{
-    top: 40px !important;
+.header-dropdown .MuiPopover-paper{
+    top: 50px !important;
+}
+.menu-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 10px;
+    border-bottom: solid 1px  #e8e8e8;
+    font-size: 14px;
+    color:  #a2a5b9;
+}
+.menu-header svg {
+    font-size: 12px;
+    color: #a2a5b9;
+}
+.comment-text{
+    font-size: 12px;
+    line-height: 20px;
+}
+.profile-dropdown {
+    line-height: 18px;
+}
+.profile-dropdown strong{
+    display: block;
+    width: 100%;
+    font-size: 14px;
 }
