@@ -1,12 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import Dashboard from "./components/dashboard/dashboard";
+import SignInOutContainer from './container/Index';
+import Canvas from './components/canvas/Canvas';
+import Dashboard from './components/dashboard/dashboard';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+    <>
+    <Router>
+    <Canvas />
+    <Routes>
+      <Route path='/' element={<SignInOutContainer />}></Route>
+      <Route path='/dashboard' element={<Dashboard/>}></Route>
+    </Routes>
+    </Router>
+    </>
   );
 }
 
